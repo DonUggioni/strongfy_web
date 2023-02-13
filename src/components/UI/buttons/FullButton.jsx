@@ -1,0 +1,14 @@
+import React from 'react';
+
+function FullButton({ children, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className='px-6 py-1.5 bg-primary500 rounded-sm border-2 border-primary500 transition-all hover:bg-transparent hover:text-primary400 hover:border-primary400'
+    >
+      {children}
+    </button>
+  );
+}
+
+export default FullButton;
