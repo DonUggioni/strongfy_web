@@ -1,13 +1,7 @@
-import Hero from './components/Hero';
-import NavBar from './components/navBar';
+import LandingPage from './components/pages/LandingPage';
 
 function App() {
-  return (
-    <div className='h-screen bg-background font-mont text-textColor box-border'>
-      <NavBar />
-      <Hero />
-    </div>
-  );
+  return <LandingPage />;
 }
 
 export default App;
