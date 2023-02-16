@@ -13,7 +13,7 @@ function Text({ children }) {
   return (
     <motion.p
       variants={item}
-      className='text-lg leading-9 xl:text-base xl:leading-9'
+      className='text-lg leading-9 xl:text-base xl:leading-8'
     >
       {children}
     </motion.p>
