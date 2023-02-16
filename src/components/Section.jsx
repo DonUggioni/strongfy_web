@@ -1,8 +1,45 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { motion, useAnimationControls, useInView } from 'framer-motion';
 
-function Section({ children, styles }) {
+function Section({ children, styles, background }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 0.4 });
+  const control = useAnimationControls();
+
+  const variant = {
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delayChildren: 0.4,
+        staggerChildren: 0.2,
+        duration: 0.6,
+      },
+    },
+    hidden: { y: 300, opacity: 0.5 },
+  };
+
+  useEffect(() => {
+    if (isInView) {
+      control.start('visible');
+    }
+  }, [isInView]);
+
   return (
-    <section className={`h-auto py-16 px-32 ${styles}`}>{children}</section>
+    <section
+      ref={ref}
+      className={`h-auto py-16 px-24 w-screen flex items-center justify-center ${background} xl:px-16 xl:py-10`}
+    >
+      <motion.div
+        variants={variant}
+        initial='hidden'
+        animate={control}
+        className={`max-w-screen-2xl ${styles}`}
+        easeIn
+      >
+        {children}
+      </motion.div>
+    </section>
   );
 }
 

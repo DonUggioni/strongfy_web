@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Hero from '../Hero';
 import NavBar from '../navBar';
 import Section from '../Section';
@@ -14,17 +15,23 @@ import AppleDownloadButton from '../UI/buttons/AppleDownloadButton';
 import GoogleDownloadButton from '../UI/buttons/GoogleDownloadButton';
 
 function LandingPage() {
+  const item = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+
   return (
-    <div className='h-full bg-background font-mont text-textColor box-border '>
-      <NavBar />
+    <div className='h-full max-w-screen-2xl bg-background font-mont text-textColor box-border '>
       <Hero />
       <Section
-        styles={
-          'bg-gradient-to-r from-primary500 to-primary600 flex flex-row  gap-32'
-        }
+        background={'bg-gradient-to-r from-primary500 to-primary600 '}
+        styles={'flex flex-row gap-28 xl:gap-16'}
       >
         <PhoneScreenshot imageSrc={ScreenShot1} />
-        <div className='flex flex-col flex-1 self-center gap-10'>
+        <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
           <Title>Lorem ipsum dolor sit amet</Title>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -38,8 +45,8 @@ function LandingPage() {
           </Text>
         </div>
       </Section>
-      <Section styles={' flex flex-row  gap-32'}>
-        <div className='flex flex-col flex-1 self-center gap-10'>
+      <Section styles={'flex flex-row gap-28 xl:gap-16'}>
+        <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
           <Title>Lorem ipsum dolor sit amet</Title>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -55,12 +62,11 @@ function LandingPage() {
         <PhoneScreenshot imageSrc={ScreenShot2} />
       </Section>
       <Section
-        styles={
-          'bg-gradient-to-r from-primary600 to-primary500 flex flex-row  gap-32'
-        }
+        background={'bg-gradient-to-r from-primary600 to-primary500 '}
+        styles={'flex flex-row gap-28 xl:gap-16'}
       >
         <PhoneScreenshot imageSrc={ScreenShot3} />
-        <div className='flex flex-col flex-1 self-center gap-10'>
+        <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
           <Title>Lorem ipsum dolor sit amet</Title>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -79,14 +85,16 @@ function LandingPage() {
           <Title>Ready to get stronger?</Title>
           <Text>Sign up now and start your quest to strength!</Text>
         </div>
-        <FullButton styles={'min-w-[16rem] mt-2'}>Sign Up</FullButton>
+        <motion.div variants={item}>
+          <FullButton styles={'min-w-[16rem] mt-2'}>Sign Up</FullButton>
+        </motion.div>
 
         <div className='flex flex-col items-center justify-center mt-8 gap-2'>
           <Text>Get the app</Text>
-          <div className='flex gap-6'>
+          <motion.div variants={item} className='flex gap-6'>
             <AppleDownloadButton />
             <GoogleDownloadButton />
-          </div>
+          </motion.div>
         </div>
       </Section>
       <Footer />
