@@ -28,7 +28,9 @@ function LandingPage() {
       <Hero />
       <Section
         background={'bg-gradient-to-r from-primary500 to-primary600 '}
-        styles={'flex flex-row gap-28 xl:gap-16'}
+        styles={
+          'flex flex-row gap-28 xl:gap-16 md:flex-col items-center justify-center md:text-center md:gap-10 pb-10'
+        }
       >
         <PhoneScreenshot imageSrc={ScreenShot1} />
         <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
@@ -45,7 +47,11 @@ function LandingPage() {
           </Text>
         </div>
       </Section>
-      <Section styles={'flex flex-row gap-28 xl:gap-16'}>
+      <Section
+        styles={
+          'flex flex-row gap-28 xl:gap-16 md:flex-col-reverse items-center justify-center md:text-center md:gap-10 pb-10'
+        }
+      >
         <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
           <Title>Lorem ipsum dolor sit amet</Title>
           <Text>
@@ -63,7 +69,9 @@ function LandingPage() {
       </Section>
       <Section
         background={'bg-gradient-to-r from-primary600 to-primary500 '}
-        styles={'flex flex-row gap-28 xl:gap-16'}
+        styles={
+          'flex flex-row gap-28 xl:gap-16 md:flex-col items-center justify-center md:text-center md:gap-10 pb-10'
+        }
       >
         <PhoneScreenshot imageSrc={ScreenShot3} />
         <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
