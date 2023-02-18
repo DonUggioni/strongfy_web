@@ -9,6 +9,7 @@ module.exports = {
         primary600: '#22581a',
         primary700: '#11300c',
         background: '#1E1E1E',
+        almostBlack: '#222222',
         textColor: '#EFEFEF',
       },
       fontFamily: {

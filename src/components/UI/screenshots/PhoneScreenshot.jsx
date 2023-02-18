@@ -5,7 +5,7 @@ function PhoneScreenshot({ imageSrc }) {
   return (
     <motion.div
       whileHover={{ scale: 1.1 }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.2 }}
       easeInOut
       className='max-w-standard rounded-md overflow-hidden xl:max-w-lg '
     >
