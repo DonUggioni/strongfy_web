@@ -12,12 +12,12 @@ function NavBar() {
     : 'sm:translate-x-full';
 
   return (
-    <nav className='py-4 px-8 flex justify-between items-center border-b border-neutral-800 bg-background relative'>
+    <nav className='py-4 px-8 flex justify-between items-center border-b border-neutral-800 bg-background relative sm:px-4'>
       <div className='w-40 xl:w-36'>
         <img src={navLogo} alt='Logo' className='w-full' />
       </div>
       <div
-        className={`flex items-center justify-center gap-3 sm:absolute top-full right-0 sm:flex-col sm:bg-background sm:w-screen sm:h-screen sm:p-16 ${menuOpen} sm:transition-all`}
+        className={`flex items-center justify-center gap-3 sm:absolute top-full right-0 sm:flex-col sm:bg-background sm:w-screen sm:h-screen sm:p-12 ${menuOpen} sm:transition-all ease-in duration-300`}
       >
         <FullButton styles={'sm:w-full'}>Sign Up</FullButton>
         <FlatButton styles={'sm:w-full'}>Login</FlatButton>

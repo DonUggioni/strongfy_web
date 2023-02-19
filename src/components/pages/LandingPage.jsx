@@ -29,11 +29,11 @@ function LandingPage() {
       <Section
         background={'bg-gradient-to-r from-primary500 to-primary600 '}
         styles={
-          'flex flex-row gap-28 xl:gap-16 md:flex-col items-center justify-center md:text-center md:gap-10 pb-10'
+          'flex flex-row gap-28 xl:gap-16 md:flex-col items-center justify-center md:text-center md:gap-10 pb-4 sm:gap-0 sm:pb-10'
         }
       >
         <PhoneScreenshot imageSrc={ScreenShot1} />
-        <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
+        <div className='flex flex-col flex-1 self-center w-full gap-10 xl:gap-8 sm:gap-6'>
           <Title>Lorem ipsum dolor sit amet</Title>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -49,7 +49,7 @@ function LandingPage() {
       </Section>
       <Section
         styles={
-          'flex flex-row gap-28 xl:gap-16 md:flex-col-reverse items-center justify-center md:text-center md:gap-10 pb-10'
+          'flex flex-row gap-28 xl:gap-16 md:flex-col-reverse items-center justify-center md:text-center md:gap-10 pb-4 sm:gap-0'
         }
       >
         <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
@@ -70,7 +70,7 @@ function LandingPage() {
       <Section
         background={'bg-gradient-to-r from-primary600 to-primary500 '}
         styles={
-          'flex flex-row gap-28 xl:gap-16 md:flex-col items-center justify-center md:text-center md:gap-10 pb-10'
+          'flex flex-row gap-28 xl:gap-16 md:flex-col items-center justify-center md:text-center md:gap-10 pb-4 sm:gap-0'
         }
       >
         <PhoneScreenshot imageSrc={ScreenShot3} />
@@ -88,21 +88,21 @@ function LandingPage() {
           </Text>
         </div>
       </Section>
-      <Section
-        styles={'flex items-center justify-center flex-col'}
-        sectionStyles={'py-16'}
-      >
+      <Section styles={'flex items-center justify-center flex-col py-12'}>
         <div className='flex flex-col items-center gap-6'>
-          <Title>Ready to get stronger?</Title>
+          <Title style={'sm:text-center'}>Ready to get stronger?</Title>
           <Text>Sign up now and start your quest to strength!</Text>
         </div>
         <motion.div variants={item}>
           <FullButton styles={'min-w-[16rem] mt-2'}>Sign Up</FullButton>
         </motion.div>
 
-        <div className='flex flex-col items-center justify-center mt-8 gap-2'>
+        <div className='flex flex-col items-center justify-center mt-8 gap-2 sm:text-center'>
           <Text>Get the app</Text>
-          <motion.div variants={item} className='flex gap-6'>
+          <motion.div
+            variants={item}
+            className='flex gap-6 sm:flex-col sm:gap-3'
+          >
             <AppleDownloadButton />
             <GoogleDownloadButton />
           </motion.div>

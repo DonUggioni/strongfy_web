@@ -10,9 +10,9 @@ function Hero() {
       <div className='max-w-xl justify-self-center xl:max-w-md'>
         <img src={hero} alt='hero' className='w-screen' />
       </div>
-      <div className='flex flex-col items-center gap-2'>
+      <div className='flex flex-col items-center gap-2 '>
         <Text>Get the app</Text>
-        <div className='flex flex-row gap-6 items-center justify-center'>
+        <div className='flex flex-row gap-6 items-center justify-center sm:flex-col sm:gap-3'>
           <AppleDownloadButton />
           <GoogleDownloadButton />
         </div>

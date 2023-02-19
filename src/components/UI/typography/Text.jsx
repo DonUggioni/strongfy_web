@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-function Text({ children }) {
+function Text({ children, style }) {
   const item = {
     hidden: { y: 30, opacity: 0 },
     visible: {
@@ -13,7 +13,7 @@ function Text({ children }) {
   return (
     <motion.p
       variants={item}
-      className='text-lg leading-9 xl:text-base xl:leading-8'
+      className={`text-lg leading-9 xl:text-base xl:leading-8 sm:text-center ${style}`}
     >
       {children}
     </motion.p>

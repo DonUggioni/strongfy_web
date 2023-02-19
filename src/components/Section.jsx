@@ -28,7 +28,7 @@ function Section({ children, styles, background, sectionStyles }) {
   return (
     <section
       ref={ref}
-      className={`h-auto py-16 px-24 w-screen flex items-center justify-center ${background} ${sectionStyles} xl:px-16 xl:py-10`}
+      className={`h-auto py-16 px-24 sm:px-8 sm:py-2 w-screen flex items-center justify-center ${background} ${sectionStyles}`}
     >
       <motion.div
         variants={variant}
