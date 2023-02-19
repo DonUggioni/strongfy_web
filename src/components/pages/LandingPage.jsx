@@ -88,7 +88,10 @@ function LandingPage() {
           </Text>
         </div>
       </Section>
-      <Section styles={'flex items-center justify-center flex-col'}>
+      <Section
+        styles={'flex items-center justify-center flex-col'}
+        sectionStyles={'py-16'}
+      >
         <div className='flex flex-col items-center gap-6'>
           <Title>Ready to get stronger?</Title>
           <Text>Sign up now and start your quest to strength!</Text>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimationControls, useInView } from 'framer-motion';
 
-function Section({ children, styles, background }) {
+function Section({ children, styles, background, sectionStyles }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.4 });
   const control = useAnimationControls();
@@ -28,7 +28,7 @@ function Section({ children, styles, background }) {
   return (
     <section
       ref={ref}
-      className={`h-auto py-16 px-24 w-screen flex items-center justify-center ${background} xl:px-16 xl:py-10`}
+      className={`h-auto py-16 px-24 w-screen flex items-center justify-center ${background} ${sectionStyles} xl:px-16 xl:py-10`}
     >
       <motion.div
         variants={variant}
