@@ -13,7 +13,7 @@ function Title({ children, style }) {
   return (
     <motion.h1
       variants={item}
-      className={`text-5xl font-bold xl:text-4xl sm:text-3xl' ${style}`}
+      className={`text-5xl font-bold md:text-4xl sm:text-3xl' ${style}`}
     >
       {children}
     </motion.h1>

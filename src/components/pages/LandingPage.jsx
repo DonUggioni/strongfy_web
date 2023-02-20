@@ -49,7 +49,7 @@ function LandingPage() {
       </Section>
       <Section
         styles={
-          'flex flex-row gap-28 xl:gap-16 md:flex-col-reverse items-center justify-center md:text-center md:gap-10 pb-4 sm:gap-0'
+          'flex flex-row gap-28 xl:gap-16 md:flex-col-reverse items-center justify-center md:text-center md:gap-10 pb-4 sm:gap-0 sm:pb-10'
         }
       >
         <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
@@ -70,7 +70,7 @@ function LandingPage() {
       <Section
         background={'bg-gradient-to-r from-primary600 to-primary500 '}
         styles={
-          'flex flex-row gap-28 xl:gap-16 md:flex-col items-center justify-center md:text-center md:gap-10 pb-4 sm:gap-0'
+          'flex flex-row gap-28 xl:gap-16 md:flex-col items-center justify-center md:text-center md:gap-10 pb-4 sm:gap-0 sm:pb-10'
         }
       >
         <PhoneScreenshot imageSrc={ScreenShot3} />
