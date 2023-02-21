@@ -10,6 +10,7 @@ module.exports = {
         primary700: '#11300c',
         background: '#1E1E1E',
         almostBlack: '#222222',
+        grey300: '#c0c0c0',
         textColor: '#EFEFEF',
       },
       fontFamily: {
