@@ -25,6 +25,7 @@ function LandingPage() {
 
   return (
     <div className='h-full max-w-screen-2xl bg-background font-mont text-textColor box-border '>
+      <NavBar />
       <Hero />
       <Section
         background={'bg-gradient-to-r from-primary500 to-primary600 '}
@@ -49,7 +50,7 @@ function LandingPage() {
       </Section>
       <Section
         styles={
-          'flex flex-row gap-28 xl:gap-16 md:flex-col-reverse items-center justify-center md:text-center md:gap-10 pb-4 sm:gap-0 sm:pb-10'
+          'flex flex-row gap-28 bg-background xl:gap-16 md:flex-col-reverse items-center justify-center md:text-center md:gap-10 pb-4 sm:gap-0 sm:pb-10'
         }
       >
         <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>

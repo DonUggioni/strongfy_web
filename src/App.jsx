@@ -7,7 +7,6 @@ import SignupPage from './components/pages/SignupPage';
 function App() {
   return (
     <>
-      <NavBar />
       <div className='bg-background'>
         <Routes>
           <Route path='/' element={<LandingPage />} />
