@@ -1,33 +1,31 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '../firebase-config/firebase-config';
-import { useNavigate } from 'react-router-dom';
 
 const AppContext = createContext(null);
 
 export function AppContextProvider({ children }) {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
-  async function login(email, password) {
-    try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      if (userCredential) {
-        setUser(userCredential.user);
-        navigate('/dashboard');
-      }
-    } catch (error) {
-      console.log(error.message);
+  useEffect(() => {
+    function persistCurrentUser() {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setUser(user);
+        } else {
+          return;
+        }
+      });
     }
-  }
+    persistCurrentUser();
+  }, []);
 
   const values = {
     user,
-    login,
+    setUser,
+    isLoading,
+    setIsLoading,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

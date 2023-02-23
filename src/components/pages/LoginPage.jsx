@@ -8,17 +8,33 @@ import EmailIcon from '~icons/ic/baseline-email';
 import PasswordIcon from '~icons/mdi/password';
 import FlatButton from '../UI/buttons/FlatButton';
 import useAppContext from '../../context/Context';
+import { auth } from '../../firebase-config/firebase-config';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { login } = useAppContext();
+  const { setUser } = useAppContext();
 
-  function loginHandler(e) {
+  async function loginHandler(e) {
     e.preventDefault();
-    console.log('hello');
-    login(email, password);
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      if (userCredential) {
+        const userData = userCredential.user;
+        setUser(userData);
+        localStorage.setItem('strongfyUserId', userData.uid);
+        navigate('/dashboard');
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
   return (
