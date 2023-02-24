@@ -15,7 +15,7 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { setUser } = useAppContext();
+  const { setUser, getUserInfo, getUserTrainingInfo } = useAppContext();
 
   async function loginHandler(e) {
     e.preventDefault();
@@ -30,6 +30,8 @@ function LoginPage() {
         const userData = userCredential.user;
         setUser(userData);
         localStorage.setItem('strongfyUserId', userData.uid);
+        getUserInfo();
+        getUserTrainingInfo();
         navigate('/dashboard');
       }
     } catch (error) {

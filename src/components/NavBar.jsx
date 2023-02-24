@@ -10,7 +10,7 @@ import { auth } from '../firebase-config/firebase-config';
 
 function NavBar() {
   const [isOpen, setOpen] = useState(false);
-  const { user, setUser } = useAppContext();
+  const { user, setUser, setUserTrainingInfo } = useAppContext();
   const navigate = useNavigate();
 
   const menuOpen = isOpen
@@ -22,6 +22,7 @@ function NavBar() {
       await signOut(auth);
       localStorage.removeItem('strongfyUserId');
       setUser(null);
+      setUserTrainingInfo(null);
       navigate('/');
     } catch (error) {
       console.log(error.message);

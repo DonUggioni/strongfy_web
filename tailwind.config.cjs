@@ -11,6 +11,8 @@ module.exports = {
         background: '#1E1E1E',
         almostBlack: '#222222',
         grey300: '#c0c0c0',
+        grey400: '#818080',
+        grey500: '#5e5e5e',
         textColor: '#EFEFEF',
       },
       fontFamily: {
