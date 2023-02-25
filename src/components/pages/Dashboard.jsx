@@ -3,24 +3,27 @@ import Container from '../Container';
 import NavBar from '../navBar';
 import Title from '../UI/typography/Title';
 import Text from '../UI/typography/Text';
+import LoggedWorkouts from '../dashboardComponents/LoggedWorkouts';
+import useAppContext from '../../context/Context';
+import CurrentWorkout from '../dashboardComponents/CurrentWorkout';
 
 function Dashboard() {
+  const { userInfo } = useAppContext();
+
   return (
     <>
       <NavBar />
       <div className='pl-12 pt-2 flex gap-2'>
-        <Text>Hello,</Text>
-        <Text>User name</Text>
+        <Text style={'text-textColor'}>Hello,</Text>
+        <Text style={'text-textColor'}>{userInfo?.username}</Text>
       </div>
       <div className='px-12 py-6 grid grid-cols-2 grid-rows-4 gap-6'>
         <Container style={'flex-col col-start-1'}>
-          <Text style={'text-2xl text-grey300'}>Logged Workouts</Text>
-          <Title style={'text-2xl text-textColor'}>Title 1</Title>
+          <LoggedWorkouts />
         </Container>
 
         <Container style={'flex-col col-start-1'}>
-          <Text style={'text-2xl text-grey300'}>Text</Text>
-          <Title>Title 2</Title>
+          <CurrentWorkout />
         </Container>
 
         <Container style={'flex-col col-start-1 row-start-3 row-span-2'}>

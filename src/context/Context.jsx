@@ -35,6 +35,7 @@ export function AppContextProvider({ children }) {
   useEffect(() => {
     if (user !== null) {
       getUserTrainingInfo();
+      getUserInfo();
     }
   }, [user]);
 
@@ -55,17 +56,18 @@ export function AppContextProvider({ children }) {
   // Get user training info from DB
   async function getUserTrainingInfo() {
     const userId = localStorage?.getItem('strongfyUserId');
-    const docRef = query(
-      collection(db, 'users', userId, 'CurrentWorkout'),
-      orderBy('timeStamp', 'desc')
-    );
+    const docRef = collection(db, 'users', userId, 'CurrentWorkout');
+
+    const workouts = [];
 
     try {
-      const docs = await getDocs(docRef);
+      const docs = await getDocs(docRef, orderBy('timeStamp', 'desc'));
       docs.forEach((doc) => {
-        setUserTrainingInfo(doc.data());
+        workouts.push(doc.data());
+        console.log(doc.data());
       });
     } catch (error) {}
+    setUserTrainingInfo(workouts);
   }
 
   const values = {
