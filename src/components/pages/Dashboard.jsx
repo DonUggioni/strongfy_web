@@ -6,6 +6,7 @@ import Text from '../UI/typography/Text';
 import LoggedWorkouts from '../dashboardComponents/LoggedWorkouts';
 import useAppContext from '../../context/Context';
 import CurrentWorkout from '../dashboardComponents/CurrentWorkout';
+import PreviousWorkouts from '../dashboardComponents/PreviousWorkouts';
 
 function Dashboard() {
   const { userInfo } = useAppContext();
@@ -27,8 +28,7 @@ function Dashboard() {
         </Container>
 
         <Container style={'flex-col col-start-1 row-start-3 row-span-2'}>
-          <Text style={'text-2xl text-grey300'}>Text</Text>
-          <Title>Title 3</Title>
+          <PreviousWorkouts />
         </Container>
 
         <Container style={'flex-col col-start-2 row-start-1 row-span-2'}>
