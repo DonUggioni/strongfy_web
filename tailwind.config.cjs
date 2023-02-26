@@ -22,6 +22,9 @@ module.exports = {
         standard: '18rem',
         lg: '16rem',
       },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
     },
     screens: {
       xl: { max: '1279px' },

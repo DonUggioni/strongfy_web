@@ -1,13 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
-import {
-  doc,
-  getDoc,
-  collection,
-  getDocs,
-  query,
-  orderBy,
-} from 'firebase/firestore';
+import { onAuthStateChanged } from 'firebase/auth';
+import { doc, getDoc, collection, getDocs, orderBy } from 'firebase/firestore';
 import { auth, db } from '../firebase-config/firebase-config';
 
 const AppContext = createContext(null);
@@ -39,7 +32,7 @@ export function AppContextProvider({ children }) {
     }
   }, [user]);
 
-  // Get user info on login
+  // Get user info
   async function getUserInfo() {
     const userId = localStorage.getItem('strongfyUserId');
     const docRef = doc(db, 'users', userId);
@@ -64,7 +57,6 @@ export function AppContextProvider({ children }) {
       const docs = await getDocs(docRef, orderBy('timeStamp', 'desc'));
       docs.forEach((doc) => {
         workouts.push(doc.data());
-        console.log(doc.data());
       });
     } catch (error) {}
     setUserTrainingInfo(workouts);

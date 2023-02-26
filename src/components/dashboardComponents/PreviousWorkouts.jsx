@@ -9,14 +9,16 @@ function PreviousWorkouts() {
   let prevWorkouts;
 
   if (userTrainingInfo !== null) {
-    prevWorkouts = userTrainingInfo?.slice(0, -1);
+    prevWorkouts = userTrainingInfo?.slice(1);
   } else {
     return;
   }
 
   return (
     <>
-      <Text style={'text-2xl text-grey300'}>Previous Workouts</Text>
+      <p className='text-grey300 text-xl md:text-lg sm:text-base font-mont'>
+        Previous Workouts
+      </p>
       <div className='border-b-2 border-grey500 flex items-center justify-start w-full'>
         {prevWorkouts.map((item, index) => {
           return (

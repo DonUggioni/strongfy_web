@@ -3,10 +3,16 @@ import { Routes, Route } from 'react-router-dom';
 import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 import Dashboard from './components/pages/Dashboard';
+import LoadingPage from './components/pages/LoadingPage';
 import useAppContext from './context/Context';
 
 function App() {
-  const { user } = useAppContext();
+  const { user, isLoading } = useAppContext();
+
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+
   return (
     <div className='bg-background'>
       <Routes>

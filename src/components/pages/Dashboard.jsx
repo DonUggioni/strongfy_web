@@ -19,7 +19,9 @@ function Dashboard() {
         <Text style={'text-textColor'}>{userInfo?.username}</Text>
       </div>
       <div className='px-12 py-6 grid grid-cols-2 grid-rows-4 gap-6'>
-        <Container style={'flex-col col-start-1'}>
+        <Container
+          style={'flex-col col-start-1 min-h-[12rem] md:min-h-[10rem]'}
+        >
           <LoggedWorkouts />
         </Container>
 
@@ -27,7 +29,11 @@ function Dashboard() {
           <CurrentWorkout />
         </Container>
 
-        <Container style={'flex-col col-start-1 row-start-3 row-span-2'}>
+        <Container
+          style={
+            'flex-col col-start-1 row-start-3 row-span-2 min-h-[24rem] md:min-h-[20rem]'
+          }
+        >
           <PreviousWorkouts />
         </Container>
 

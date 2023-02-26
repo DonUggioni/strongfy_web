@@ -8,8 +8,12 @@ function LoggedWorkouts() {
 
   return (
     <>
-      <Text style={'text-grey300'}>Logged Workouts</Text>
-      <Title style={'text-textColor'}>{userInfo?.completedWorkouts}</Title>
+      <p className='text-grey300 text-xl md:text-lg sm:text-base font-mont'>
+        Logged Workouts
+      </p>
+      <span className='text-textColor text-4xl font-mont font-semibold'>
+        {userInfo?.completedWorkouts}
+      </span>
     </>
   );
 }

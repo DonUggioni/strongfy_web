@@ -15,11 +15,12 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { setUser, getUserInfo, getUserTrainingInfo } = useAppContext();
+  const { setUser, getUserInfo, getUserTrainingInfo, setIsLoading } =
+    useAppContext();
 
   async function loginHandler(e) {
     e.preventDefault();
-
+    setIsLoading(true);
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -37,6 +38,10 @@ function LoginPage() {
     } catch (error) {
       console.log(error.message);
     }
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   }
 
   return (

@@ -8,10 +8,12 @@ function CurrentWorkout() {
 
   return (
     <>
-      <Text style={'text-2xl text-grey300'}>Current Workout</Text>
-      <Title style={'text-textColor'}>
+      <p className='text-grey300 text-xl md:text-lg sm:text-base font-mont'>
+        Current Workout
+      </p>
+      <span className='text-textColor text-4xl font-mont font-semibold'>
         {userTrainingInfo !== null && userTrainingInfo[0].title}
-      </Title>
+      </span>
     </>
   );
 }
