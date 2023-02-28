@@ -9,6 +9,7 @@ export function AppContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const [userInfo, setUserInfo] = useState(null);
   const [userTrainingInfo, setUserTrainingInfo] = useState(null);
+  const [projectedMaxes, setProjectedMaxes] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ export function AppContextProvider({ children }) {
     if (user !== null) {
       getUserTrainingInfo();
       getUserInfo();
+      getProjectedMax();
     }
   }, [user]);
 
@@ -62,6 +64,24 @@ export function AppContextProvider({ children }) {
     setUserTrainingInfo(workouts);
   }
 
+  // Get user projected max info
+  async function getProjectedMax() {
+    const userId = localStorage?.getItem('strongfyUserId');
+    const docRef = doc(db, 'users', userId, 'RepMaxTrackerValues', 'data');
+
+    try {
+      const docData = await getDoc(docRef);
+
+      if (docData.exists()) {
+        setProjectedMaxes(docData.data());
+      } else {
+        return;
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   const values = {
     user,
     setUser,
@@ -72,6 +92,7 @@ export function AppContextProvider({ children }) {
     userTrainingInfo,
     setUserTrainingInfo,
     getUserTrainingInfo,
+    projectedMaxes,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FlatButton from './UI/buttons/FlatButton';
 import FullButton from './UI/buttons/FullButton';
-import navLogo from '../assets/images/nav_logo.png';
+import navLogo from '../assets/images/nav_logo-min.png';
 import { Turn as Hamburger } from 'hamburger-react';
 import { useNavigate } from 'react-router-dom';
 import useAppContext from '../context/Context';
@@ -10,7 +10,7 @@ import { auth } from '../firebase-config/firebase-config';
 
 function NavBar() {
   const [isOpen, setOpen] = useState(false);
-  const { user, setUser, setUserTrainingInfo } = useAppContext();
+  const { user, setUser, setUserTrainingInfo, setIsLoading } = useAppContext();
   const navigate = useNavigate();
 
   const menuOpen = isOpen
@@ -18,6 +18,7 @@ function NavBar() {
     : 'sm:translate-x-full';
 
   async function logoutHandler() {
+    setIsLoading(true);
     try {
       await signOut(auth);
       localStorage.removeItem('strongfyUserId');
@@ -27,6 +28,9 @@ function NavBar() {
     } catch (error) {
       console.log(error.message);
     }
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
   }
 
   return (

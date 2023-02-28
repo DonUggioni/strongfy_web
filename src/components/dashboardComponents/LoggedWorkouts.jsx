@@ -1,6 +1,4 @@
 import React from 'react';
-import Text from '../UI/typography/Text';
-import Title from '../UI/typography/Title';
 import useAppContext from '../../context/Context';
 
 function LoggedWorkouts() {
@@ -11,7 +9,7 @@ function LoggedWorkouts() {
       <p className='text-grey300 text-xl md:text-lg sm:text-base font-mont'>
         Logged Workouts
       </p>
-      <span className='text-textColor text-4xl font-mont font-semibold'>
+      <span className='text-primary500 text-4xl font-mont md:text-3xl'>
         {userInfo?.completedWorkouts}
       </span>
     </>

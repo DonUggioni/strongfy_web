@@ -1,5 +1,5 @@
 import React from 'react';
-import Barbells from '../../assets/images/barbells.png';
+import Barbells from '../../assets/images/barbells-min.png';
 
 function LoadingPage() {
   return (

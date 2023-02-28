@@ -2,6 +2,7 @@ import React from 'react';
 import Text from '../UI/typography/Text';
 import Title from '../UI/typography/Title';
 import useAppContext from '../../context/Context';
+import NoData from './NoData';
 
 function PreviousWorkouts() {
   const { userTrainingInfo } = useAppContext();
@@ -14,6 +15,14 @@ function PreviousWorkouts() {
     return;
   }
 
+  if (userTrainingInfo.length <= 1) {
+    return (
+      <NoData
+        message={'Not enough data yet! Keep training and come back later!'}
+      />
+    );
+  }
+
   return (
     <>
       <p className='text-grey300 text-xl md:text-lg sm:text-base font-mont'>
@@ -23,7 +32,7 @@ function PreviousWorkouts() {
         {prevWorkouts.map((item, index) => {
           return (
             <Text
-              style={'text-textColor pb-2 text-3xl tracking-wider'}
+              style={'text-primary500 pb-2 text-3xl tracking-wider'}
               key={index}
             >
               {item.title}
