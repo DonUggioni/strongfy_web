@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../Hero';
-import NavBar from '../navBar';
+import NavBar from '../NavBar';
 import Section from '../Section';
 import PhoneScreenshot from '../UI/screenshots/PhoneScreenshot';
 import ScreenShot1 from '../../assets/images/iphone_1.png';
