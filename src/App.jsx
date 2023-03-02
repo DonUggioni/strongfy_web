@@ -14,7 +14,7 @@ function App() {
   }
 
   return (
-    <div className='bg-background'>
+    <div className='bg-background overflow-x-hidden'>
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='login' element={<LoginPage />} />

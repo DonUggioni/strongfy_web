@@ -19,7 +19,7 @@ function Dashboard() {
         <Text style={'text-textColor'}>Hello,</Text>
         <Text style={'text-textColor'}>{userInfo?.username}</Text>
       </div>
-      <div className='px-12 py-6 grid grid-cols-2 grid-rows-4 gap-6 sm:grid-cols-1 sm:grid-rows-6 sm:gap-4'>
+      <div className='px-12 py-6 grid grid-cols-2 grid-rows-4 gap-6 sm:grid-cols-1 sm:grid-rows-6 sm:gap-4 sm:px-6 sm:py-4'>
         <Container
           style={'flex-col col-start-1 min-h-[12rem] md:min-h-[10rem]'}
         >

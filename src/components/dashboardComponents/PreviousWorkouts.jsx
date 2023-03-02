@@ -28,18 +28,18 @@ function PreviousWorkouts() {
       <p className='text-grey300 text-xl md:text-lg sm:text-base font-mont'>
         Previous Workouts
       </p>
-      <div className='border-b-2 border-grey500 flex items-center justify-start w-full'>
-        {prevWorkouts.map((item, index) => {
-          return (
+      {prevWorkouts.map((item, index) => {
+        return (
+          <div className='border-b-2 border-grey500 flex items-center justify-start w-full'>
             <Text
               style={'text-primary500 pb-2 text-3xl tracking-wider'}
               key={index}
             >
               {item.title}
             </Text>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
     </>
   );
 }

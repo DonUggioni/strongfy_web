@@ -1,6 +1,4 @@
 import React from 'react';
-import Text from '../UI/typography/Text';
-import Title from '../UI/typography/Title';
 import useAppContext from '../../context/Context';
 import NoData from './NoData';
 
