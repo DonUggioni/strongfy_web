@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from '../Container';
-import NavBar from '../navBar';
+import NavBar from '../NavBar';
 import Text from '../UI/typography/Text';
 import LoggedWorkouts from '../dashboardComponents/LoggedWorkouts';
 import useAppContext from '../../context/Context';
