@@ -34,7 +34,7 @@ function Section({ children, styles, background, sectionStyles }) {
         variants={variant}
         initial='hidden'
         animate={control}
-        className={`max-w-screen-2xl ${styles}`}
+        className={`max-w-[100rem] ${styles}`}
         easeIn
       >
         {children}

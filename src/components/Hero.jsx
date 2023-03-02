@@ -1,5 +1,5 @@
 import React from 'react';
-import hero from '../assets/images/hero_img.png';
+import hero from '../assets/images/hero_img-min.png';
 import AppleDownloadButton from './UI/buttons/AppleDownloadButton';
 import GoogleDownloadButton from './UI/buttons/GoogleDownloadButton';
 import Text from './UI/typography/Text';

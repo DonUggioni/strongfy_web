@@ -1,5 +1,5 @@
 import React from 'react';
-import footerLogo from '../assets/images/hero_img.png';
+import footerLogo from '../assets/images/hero_img-min.png';
 
 function Footer() {
   const date = new Date();
