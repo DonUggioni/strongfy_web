@@ -30,7 +30,7 @@ function NavBar() {
     }
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 2500);
   }
 
   return (

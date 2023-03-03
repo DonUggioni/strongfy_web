@@ -17,19 +17,19 @@ function ProjectedMaxes() {
         <div className='flex flex-col items-center gap-2'>
           <span className='text-grey300 text-xl md:text-base'>Squat</span>
           <span className='text-3xl text-primary500 md:text-2xl'>
-            {squat}kg
+            {squat ? squat : '0'}kg
           </span>
         </div>
         <div className='flex flex-col items-center gap-2'>
           <span className='text-grey300 text-xl md:text-base'>Bench</span>
           <span className='text-3xl text-primary500 md:text-2xl'>
-            {bench}kg
+            {bench ? bench : '0'}kg
           </span>
         </div>
         <div className='flex flex-col items-center gap-2'>
           <span className='text-grey300 text-xl md:text-base'>Deadlift</span>
           <span className='text-3xl text-primary500 md:text-2xl'>
-            {deadlift}kg
+            {deadlift ? deadlift : '0'}kg
           </span>
         </div>
       </div>

@@ -15,7 +15,7 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { setUser, getUserInfo, getUserTrainingInfo, setIsLoading } =
+  const { user, setUser, getUserInfo, getUserTrainingInfo, setIsLoading } =
     useAppContext();
   const inputRef = useRef(null);
 
@@ -32,21 +32,26 @@ function LoginPage() {
         email,
         password
       );
-      if (userCredential) {
+      if (userCredential.user && userCredential.user.emailVerified === true) {
         const userData = userCredential.user;
         setUser(userData);
         localStorage.setItem('strongfyUserId', userData.uid);
-        getUserInfo();
-        getUserTrainingInfo();
+        // getUserInfo();
+        // getUserTrainingInfo();
         navigate('/dashboard');
+      } else {
+        throw new Error();
       }
     } catch (error) {
-      console.log(error.message);
+      alert(
+        'An error occurred. Please try again or make sure the email address is verified and try again.'
+      );
+      navigate('/');
     }
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 1500);
   }
 
   return (

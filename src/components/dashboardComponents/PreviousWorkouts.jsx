@@ -30,11 +30,11 @@ function PreviousWorkouts() {
       </p>
       {prevWorkouts.map((item, index) => {
         return (
-          <div className='border-b-2 border-grey500 flex items-center justify-start w-full'>
-            <Text
-              style={'text-primary500 pb-2 text-3xl tracking-wider'}
-              key={index}
-            >
+          <div
+            className='border-b-2 border-grey500 flex items-center justify-start w-full'
+            key={index}
+          >
+            <Text style={'text-primary500 pb-2 text-3xl tracking-wider'}>
               {item.title}
             </Text>
           </div>

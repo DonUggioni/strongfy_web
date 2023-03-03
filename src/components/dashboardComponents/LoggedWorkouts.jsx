@@ -10,7 +10,7 @@ function LoggedWorkouts() {
         Logged Workouts
       </p>
       <span className='text-primary500 text-4xl font-mont md:text-3xl'>
-        {userInfo?.completedWorkouts}
+        {userInfo?.completedWorkouts ? userInfo?.completedWorkouts : '0'}
       </span>
     </>
   );

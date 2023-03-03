@@ -27,7 +27,7 @@ export function AppContextProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    if (user !== null) {
+    if (user?.emailVerified === true) {
       getUserTrainingInfo();
       getUserInfo();
       getProjectedMax();
@@ -36,7 +36,7 @@ export function AppContextProvider({ children }) {
 
   // Get user info
   async function getUserInfo() {
-    const userId = localStorage.getItem('strongfyUserId');
+    const userId = localStorage?.getItem('strongfyUserId');
     const docRef = doc(db, 'users', userId);
     try {
       const docData = await getDoc(docRef);

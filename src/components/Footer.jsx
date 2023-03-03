@@ -6,10 +6,14 @@ function Footer() {
   const year = date.getFullYear();
 
   return (
-    <div className='flex flex-col items-center justify-center max-h-60 overflow-hidden border-t border-neutral-800'>
-      <img src={footerLogo} alt='Footer logo' className='h-full' />
-      <p className='text-xs pb-6'>Strongfy® {year}. All rights reserved.</p>
-    </div>
+    <footer className='flex flex-col items-center justify-center  overflow-hidden border-t border-neutral-800 w-full mx-auto'>
+      <img
+        src={footerLogo}
+        alt='Footer logo'
+        className='w-full max-w-[14rem]'
+      />
+      <p className='text-xs pb-6'>Barbell Hub® {year}. All rights reserved.</p>
+    </footer>
   );
 }
 

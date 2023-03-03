@@ -6,7 +6,7 @@ function CurrentWorkout() {
   const { userTrainingInfo } = useAppContext();
 
   if (userTrainingInfo?.length === 0) {
-    <NoData message={'No workouts have been created yet!'} />;
+    return <NoData message={'No workouts have been created yet!'} />;
   }
 
   return (
@@ -15,7 +15,7 @@ function CurrentWorkout() {
         Current Workout
       </p>
       <span className='text-primary500 text-center text-4xl font-mont tracking-wider md:text-3xl md:tracking-wide'>
-        {userTrainingInfo !== null && userTrainingInfo[0].title}
+        {userTrainingInfo !== null && userTrainingInfo[0]?.title}
       </span>
     </>
   );
