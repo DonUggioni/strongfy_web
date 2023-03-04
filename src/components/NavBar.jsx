@@ -33,6 +33,29 @@ function NavBar() {
     }, 2500);
   }
 
+  function navButtons() {
+    if (user === null || user.emailVerified === false) {
+      return (
+        <>
+          <FullButton styles={'sm:w-full'} onClick={() => navigate('/signup')}>
+            Sign Up
+          </FullButton>
+          <FlatButton styles={'sm:w-full'} onClick={() => navigate('/login')}>
+            Login
+          </FlatButton>
+        </>
+      );
+    }
+
+    if (user !== null && user.emailVerified === true) {
+      return (
+        <FlatButton styles={'sm:w-full'} onClick={logoutHandler}>
+          Logout
+        </FlatButton>
+      );
+    }
+  }
+
   return (
     <nav className='py-4 px-8 flex justify-between items-center border-b border-neutral-800 bg-background relative sm:px-4'>
       <div className='w-40 xl:w-36'>
@@ -41,24 +64,7 @@ function NavBar() {
       <div
         className={`flex items-center justify-center gap-3 sm:absolute top-full right-0 sm:flex-col sm:bg-background sm:w-screen sm:h-screen sm:p-12 ${menuOpen} sm:transition-all ease-in duration-300`}
       >
-        {user === null && (
-          <>
-            <FullButton
-              styles={'sm:w-full'}
-              onClick={() => navigate('/signup')}
-            >
-              Sign Up
-            </FullButton>
-            <FlatButton styles={'sm:w-full'} onClick={() => navigate('/login')}>
-              Login
-            </FlatButton>
-          </>
-        )}
-        {user !== null && (
-          <FlatButton styles={'sm:w-full'} onClick={logoutHandler}>
-            Logout
-          </FlatButton>
-        )}
+        {navButtons()}
       </div>
       <div className='hidden sm:block'>
         <Hamburger

@@ -14,6 +14,7 @@ import PasswordIcon from '~icons/mdi/password';
 import UserIcon from '~icons/mdi/user-box';
 import EmailIcon from '~icons/ic/baseline-email';
 import { auth, db } from '../../firebase-config/firebase-config';
+import useAppContext from '../../context/Context';
 
 function SignupPage() {
   const [username, setUsername] = useState(null);
@@ -22,6 +23,7 @@ function SignupPage() {
   const [confirmPassword, setConfirmPassword] = useState(null);
   const navigate = useNavigate();
   const inputRef = useRef(null);
+  const { setUser } = useAppContext();
 
   useEffect(() => {
     inputRef.current.focus();
@@ -39,7 +41,7 @@ function SignupPage() {
         );
 
         await sendEmailVerification(auth.currentUser, {
-          url: 'https://monumental-hamster-68270b.netlify.app/',
+          url: 'https://monumental-hamster-68270b.netlify.app/login',
         });
 
         if (newUser) {
@@ -49,6 +51,8 @@ function SignupPage() {
             completedWorkouts: 0,
           });
           localStorage.setItem('strongfyUserId', newUser.user.uid);
+          setUser(newUser.user);
+          navigate('/');
         }
       } catch (error) {
         console.log(error.message);

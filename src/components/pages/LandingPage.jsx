@@ -13,8 +13,10 @@ import Footer from '../Footer';
 import FullButton from '../UI/buttons/FullButton';
 import AppleDownloadButton from '../UI/buttons/AppleDownloadButton';
 import GoogleDownloadButton from '../UI/buttons/GoogleDownloadButton';
+import { useNavigate } from 'react-router-dom';
 
 function LandingPage() {
+  const navigate = useNavigate();
   const item = {
     hidden: { y: 30, opacity: 0 },
     visible: {
@@ -95,7 +97,12 @@ function LandingPage() {
           <Text>Sign up now and start your quest to strength!</Text>
         </div>
         <motion.div variants={item}>
-          <FullButton styles={'min-w-[16rem] mt-2'}>Sign Up</FullButton>
+          <FullButton
+            styles={'min-w-[16rem] mt-2'}
+            onClick={() => navigate('/signup')}
+          >
+            Sign Up
+          </FullButton>
         </motion.div>
 
         <div className='flex flex-col items-center justify-center mt-8 gap-2 sm:text-center'>

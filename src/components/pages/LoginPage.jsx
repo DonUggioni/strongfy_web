@@ -15,8 +15,7 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { user, setUser, getUserInfo, getUserTrainingInfo, setIsLoading } =
-    useAppContext();
+  const { setUser, setIsLoading } = useAppContext();
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -36,8 +35,6 @@ function LoginPage() {
         const userData = userCredential.user;
         setUser(userData);
         localStorage.setItem('strongfyUserId', userData.uid);
-        // getUserInfo();
-        // getUserTrainingInfo();
         navigate('/dashboard');
       } else {
         throw new Error();
