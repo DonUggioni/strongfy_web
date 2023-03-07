@@ -4,9 +4,9 @@ import useAppContext from '../../context/Context';
 function ProjectedMaxes() {
   const { projectedMaxes } = useAppContext();
 
-  const squat = projectedMaxes?.squat[0].value;
-  const bench = projectedMaxes?.bench[0].value;
-  const deadlift = projectedMaxes?.deadlift[0].value;
+  const squat = projectedMaxes?.squat.pop(-1).value;
+  const bench = projectedMaxes?.bench.pop(-1).value;
+  const deadlift = projectedMaxes?.deadlift.pop(-1).value;
 
   return (
     <div className='flex flex-col items-center gap-6 w-full'>
