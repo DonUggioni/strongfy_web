@@ -37,16 +37,12 @@ function LandingPage() {
       >
         <PhoneScreenshot imageSrc={ScreenShot1} />
         <div className='flex flex-col flex-1 self-center w-full gap-10 xl:gap-8 sm:gap-6'>
-          <Title>Lorem ipsum dolor sit amet</Title>
+          <Title>Select your training phase.</Title>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor
-            vitae purus faucibus ornare suspendisse sed nisi lacus sed. A
-            scelerisque purus semper eget duis at tellus at. Est ante in nibh
-            mauris cursus mattis molestie. Nunc mattis enim ut tellus elementum
-            sagittis vitae. Consectetur adipiscing elit duis tristique
-            sollicitudin nibh sit amet. Tempus egestas sed sed risus pretium
-            quam vulputate dignissim suspendisse.
+            Want to grow muscle? Want to get stronger? Focusing your workouts on
+            a specific type of training can more efficient. For this reason, you
+            can choose between hypertrophy and strength phases in order to
+            maximize your gains.
           </Text>
         </div>
       </Section>
@@ -56,16 +52,12 @@ function LandingPage() {
         }
       >
         <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
-          <Title>Lorem ipsum dolor sit amet</Title>
+          <Title>Calculate your maxes.</Title>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor
-            vitae purus faucibus ornare suspendisse sed nisi lacus sed. A
-            scelerisque purus semper eget duis at tellus at. Est ante in nibh
-            mauris cursus mattis molestie. Nunc mattis enim ut tellus elementum
-            sagittis vitae. Consectetur adipiscing elit duis tristique
-            sollicitudin nibh sit amet. Tempus egestas sed sed risus pretium
-            quam vulputate dignissim suspendisse.
+            Hit a new PR for 3 reps? Using the rep max calculator, you can
+            calculate your estimated rep max to better adjust your training.
+            During a strength phase, it is important to know your maxes so you
+            plan your training session more efficiently.
           </Text>
         </div>
         <PhoneScreenshot imageSrc={ScreenShot2} />
@@ -78,16 +70,13 @@ function LandingPage() {
       >
         <PhoneScreenshot imageSrc={ScreenShot3} />
         <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
-          <Title>Lorem ipsum dolor sit amet</Title>
+          <Title>Track your progress.</Title>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor
-            vitae purus faucibus ornare suspendisse sed nisi lacus sed. A
-            scelerisque purus semper eget duis at tellus at. Est ante in nibh
-            mauris cursus mattis molestie. Nunc mattis enim ut tellus elementum
-            sagittis vitae. Consectetur adipiscing elit duis tristique
-            sollicitudin nibh sit amet. Tempus egestas sed sed risus pretium
-            quam vulputate dignissim suspendisse.
+            Keep track of your progress on the three big lifts. Let's be honest,
+            no one cares how much you can leg press! As powerlifters, all we
+            care about is how much you can squat, bench and deadlift. For that
+            reason, we've added a chart to help you visualize your progress on
+            the main three.
           </Text>
         </div>
       </Section>
