@@ -37,7 +37,7 @@ function LandingPage() {
       >
         <PhoneScreenshot imageSrc={ScreenShot1} />
         <div className='flex flex-col flex-1 self-center w-full gap-10 xl:gap-8 sm:gap-6'>
-          <Title>Select your training phase.</Title>
+          <Title>Select your training phase</Title>
           <Text>
             Want to grow muscle? Want to get stronger? Focusing your workouts on
             a specific type of training can more efficient. For this reason, you
@@ -52,7 +52,7 @@ function LandingPage() {
         }
       >
         <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
-          <Title>Calculate your maxes.</Title>
+          <Title>Calculate your maxes</Title>
           <Text>
             Hit a new PR for 3 reps? Using the rep max calculator, you can
             calculate your estimated rep max to better adjust your training.
@@ -70,7 +70,7 @@ function LandingPage() {
       >
         <PhoneScreenshot imageSrc={ScreenShot3} />
         <div className='flex flex-col flex-1 self-center gap-10 xl:gap-8'>
-          <Title>Track your progress.</Title>
+          <Title>Track your progress</Title>
           <Text>
             Keep track of your progress on the three big lifts. Let's be honest,
             no one cares how much you can leg press! As powerlifters, all we
