@@ -25,6 +25,10 @@ function SignupPage() {
   const inputRef = useRef(null);
   const { setUser } = useAppContext();
 
+  const validUsername = username !== null;
+  const validEmail = email !== null && email.includes('@');
+  const validPassword = password !== null && password.length >= 6;
+
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -32,7 +36,17 @@ function SignupPage() {
   async function signupHandler(e) {
     e.preventDefault();
 
-    if (password === confirmPassword) {
+    if (!validUsername || !validEmail || !validPassword) {
+      alert(
+        'Please make sure all fields are filled in and the information is correct.'
+      );
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords don't match.");
+    }
+
+    if (validUsername && validEmail && password === confirmPassword) {
       try {
         const newUser = await createUserWithEmailAndPassword(
           auth,
