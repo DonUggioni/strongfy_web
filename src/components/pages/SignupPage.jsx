@@ -58,6 +58,10 @@ function SignupPage() {
           url: 'https://monumental-hamster-68270b.netlify.app/login',
         });
 
+        alert(
+          'A confirmation email was sent. Please verify your email before logging in.'
+        );
+
         if (newUser) {
           await setDoc(doc(db, 'users', newUser.user.uid), {
             username: username,
