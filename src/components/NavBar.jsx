@@ -62,7 +62,7 @@ function NavBar() {
         <img src={navLogo} alt='Logo' className='w-full' />
       </div>
       <div
-        className={`flex items-center justify-center gap-3 sm:absolute top-full right-0 sm:flex-col sm:bg-background sm:w-screen sm:h-screen sm:p-12 ${menuOpen} sm:transition-all ease-in duration-300 sm:h-[100dvh] `}
+        className={`flex items-center justify-center gap-3 sm:absolute top-full right-0 sm:flex-col sm:bg-background sm:w-screen sm:h-screen sm:p-12 ${menuOpen} sm:transition-all ease-in duration-300 sm:h-screen `}
       >
         {navButtons()}
       </div>
