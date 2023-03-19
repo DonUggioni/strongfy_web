@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 
 function PhoneScreenshot({ imageSrc }) {
+  const windowWidth = useRef(window.innerWidth);
+
+  const imageHover = windowWidth.current > 846 ? { scale: 1.1 } : '';
+
   return (
     <motion.div
-      whileHover={{ scale: 1.1 }}
+      whileHover={imageHover}
       transition={{ duration: 0.2 }}
       easeInOut
       className='max-w-standard rounded-md overflow-hidden xl:max-w-lg '
