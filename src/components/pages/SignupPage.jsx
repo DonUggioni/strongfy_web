@@ -21,9 +21,11 @@ function SignupPage() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
+
   const navigate = useNavigate();
   const inputRef = useRef(null);
-  const { setUser } = useAppContext();
+  const { setUser, setPrivacyModalIsOpen, setTermsModalIsOpen } =
+    useAppContext();
 
   const validUsername = username !== null;
   const validEmail = email !== null && email.includes('@');
@@ -131,6 +133,24 @@ function SignupPage() {
           Already have an account?
         </FlatButton>
       </Form>
+      <div>
+        <p className='text-textColor text-[.8rem]'>
+          By signing up you agree to the{' '}
+          <span
+            onClick={() => setPrivacyModalIsOpen(true)}
+            className='underline underline-offset-2 cursor-pointer'
+          >
+            Privacy Policy
+          </span>{' '}
+          and{' '}
+          <span
+            onClick={() => setTermsModalIsOpen(true)}
+            className='underline underline-offset-2 cursor-pointer'
+          >
+            Terms and Conditions.
+          </span>
+        </p>
+      </div>
     </div>
   );
 }

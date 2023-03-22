@@ -1,6 +1,6 @@
 import React from 'react';
 import hero from '../assets/images/hero_img-min.png';
-import AppleDownloadButton from './UI/buttons/AppleDownloadButton';
+// import AppleDownloadButton from './UI/buttons/AppleDownloadButton';
 import GoogleDownloadButton from './UI/buttons/GoogleDownloadButton';
 import Text from './UI/typography/Text';
 
@@ -13,7 +13,7 @@ function Hero() {
       <div className='flex flex-col items-center gap-2 '>
         <Text>Get the app</Text>
         <div className='flex flex-row gap-6 items-center justify-center sm:flex-col sm:gap-3'>
-          <AppleDownloadButton />
+          {/* <AppleDownloadButton /> */}
           <GoogleDownloadButton />
         </div>
       </div>

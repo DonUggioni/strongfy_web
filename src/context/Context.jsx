@@ -11,6 +11,8 @@ export function AppContextProvider({ children }) {
   const [userTrainingInfo, setUserTrainingInfo] = useState(null);
   const [projectedMaxes, setProjectedMaxes] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [privacyModalIsOpen, setPrivacyModalIsOpen] = useState(false);
+  const [termsModalIsOpen, setTermsModalIsOpen] = useState(false);
 
   useEffect(() => {
     // On reload, user will persist
@@ -93,6 +95,10 @@ export function AppContextProvider({ children }) {
     setUserTrainingInfo,
     getUserTrainingInfo,
     projectedMaxes,
+    privacyModalIsOpen,
+    setPrivacyModalIsOpen,
+    termsModalIsOpen,
+    setTermsModalIsOpen,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

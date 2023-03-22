@@ -5,6 +5,7 @@ import SignupPage from './components/pages/SignupPage';
 import Dashboard from './components/pages/Dashboard';
 import LoadingPage from './components/pages/LoadingPage';
 import useAppContext from './context/Context';
+import Modal from './components/Modal';
 
 function App() {
   const { user, isLoading } = useAppContext();
@@ -14,7 +15,8 @@ function App() {
   }
 
   return (
-    <div className='bg-background overflow-x-hidden'>
+    <div className='bg-background overflow-x-hidden grid'>
+      <Modal />
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='login' element={<LoginPage />} />

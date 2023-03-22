@@ -11,7 +11,7 @@ import Text from '../UI/typography/Text';
 import Title from '../UI/typography/Title';
 import Footer from '../Footer';
 import FullButton from '../UI/buttons/FullButton';
-import AppleDownloadButton from '../UI/buttons/AppleDownloadButton';
+// import AppleDownloadButton from '../UI/buttons/AppleDownloadButton';
 import GoogleDownloadButton from '../UI/buttons/GoogleDownloadButton';
 import { useNavigate } from 'react-router-dom';
 
@@ -57,7 +57,7 @@ function LandingPage() {
             Hit a new PR for 3 reps? Using the rep max calculator, you can
             calculate your estimated rep max to better adjust your training.
             During a strength phase, it is important to know your maxes so you
-            plan your training session more efficiently.
+            can plan your training session more efficiently.
           </Text>
         </div>
         <PhoneScreenshot imageSrc={ScreenShot2} />
@@ -100,7 +100,7 @@ function LandingPage() {
             variants={item}
             className='flex gap-6 sm:flex-col sm:gap-3'
           >
-            <AppleDownloadButton />
+            {/* <AppleDownloadButton /> */}
             <GoogleDownloadButton />
           </motion.div>
         </div>
