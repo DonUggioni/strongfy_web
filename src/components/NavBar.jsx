@@ -3,6 +3,7 @@ import FlatButton from './UI/buttons/FlatButton';
 import FullButton from './UI/buttons/FullButton';
 import navLogo from '../assets/images/nav_logo-min.png';
 import { Turn as Hamburger } from 'hamburger-react';
+import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import useAppContext from '../context/Context';
 import { signOut } from 'firebase/auth';
@@ -12,6 +13,11 @@ function NavBar() {
   const [isOpen, setOpen] = useState(false);
   const { user, setUser, setUserTrainingInfo, setIsLoading } = useAppContext();
   const navigate = useNavigate();
+
+  const inactive =
+    'font-mont text-primary500 text-base hover:text-primary400 transition-all';
+
+  const activeLink = 'font-mont text-primary400 text-base';
 
   const menuOpen = isOpen
     ? 'sm:translate-x-0 sm:overflow-y-hidden'
@@ -49,9 +55,23 @@ function NavBar() {
 
     if (user !== null && user.emailVerified === true) {
       return (
-        <FlatButton styles={'sm:w-full'} onClick={logoutHandler}>
-          Logout
-        </FlatButton>
+        <>
+          <NavLink
+            to='/'
+            className={({ isActive }) => (isActive ? activeLink : inactive)}
+          >
+            Articles
+          </NavLink>
+          <NavLink
+            to={'/dashboard'}
+            className={({ isActive }) => (isActive ? activeLink : inactive)}
+          >
+            Dashboard
+          </NavLink>
+          <FlatButton styles={'sm:w-full'} onClick={logoutHandler}>
+            Logout
+          </FlatButton>
+        </>
       );
     }
   }
@@ -62,7 +82,7 @@ function NavBar() {
         <img src={navLogo} alt='Logo' className='w-full' />
       </div>
       <div
-        className={`flex items-center justify-center gap-3 sm:absolute top-full right-0 sm:flex-col sm:bg-background sm:w-screen sm:h-screen sm:p-12 ${menuOpen} sm:transition-all ease-in duration-300 sm:h-screen `}
+        className={`flex items-center justify-center gap-6 sm:absolute top-full right-0 sm:flex-col sm:bg-background sm:w-screen sm:h-screen sm:p-12 ${menuOpen} sm:transition-all ease-in duration-300 sm:h-screen sm:gap-4 `}
       >
         {navButtons()}
       </div>
