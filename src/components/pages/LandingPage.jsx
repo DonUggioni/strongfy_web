@@ -26,7 +26,7 @@ function LandingPage() {
   };
 
   return (
-    <div className='h-full max-w-screen-2xl bg-background font-mont text-textColor box-border '>
+    <main className='h-full max-w-screen-2xl bg-background font-mont text-textColor box-border '>
       <NavBar />
       <Hero />
       <Section
@@ -112,7 +112,7 @@ function LandingPage() {
         </div>
       </Section>
       <Footer />
-    </div>
+    </main>
   );
 }
 

@@ -25,6 +25,9 @@ module.exports = {
       animation: {
         'spin-slow': 'spin 3s linear infinite',
       },
+      scale: {
+        103: '1.03',
+      },
     },
     screens: {
       xl: { max: '1279px' },
