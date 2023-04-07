@@ -11,6 +11,7 @@ function GoogleDownloadButton({ onClick }) {
       <a
         href='https://play.google.com/store/apps/details?id=com.barbell.hub'
         className='flex flex-col'
+        target='_blank'
       >
         <span className='text-xs text-left'>Get it on</span>
         <span className='font-semibold tracking-wide'>Google Play</span>

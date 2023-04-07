@@ -13,6 +13,7 @@ export function AppContextProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [privacyModalIsOpen, setPrivacyModalIsOpen] = useState(false);
   const [termsModalIsOpen, setTermsModalIsOpen] = useState(false);
+  const [newPostModalIsOpen, setNewPostIsOpen] = useState(false);
 
   useEffect(() => {
     // On reload, user will persist
@@ -99,6 +100,8 @@ export function AppContextProvider({ children }) {
     setPrivacyModalIsOpen,
     termsModalIsOpen,
     setTermsModalIsOpen,
+    newPostModalIsOpen,
+    setNewPostIsOpen,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
