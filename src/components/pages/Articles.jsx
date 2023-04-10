@@ -11,7 +11,7 @@ import NewPostModal from '../NewPostModal';
 function Articles() {
   const { setIsLoading, user } = useAppContext();
   const [articlesList, setArticlesList] = useState(null);
-  const [articleModalOpen, setArticleModalOpen] = useState(true);
+  const [articleModalOpen, setArticleModalOpen] = useState(false);
   const navigate = useNavigate();
   const adminEmail = import.meta.env.VITE_ADMIN_EMAIL;
   const ref = document.getElementById('modal');
@@ -27,11 +27,20 @@ function Articles() {
 
   return (
     <div className='h-screen'>
-      {articleModalOpen && createPortal(<NewPostModal />, ref)}
+      {articleModalOpen &&
+        createPortal(
+          <NewPostModal onClose={() => setArticleModalOpen(false)} />,
+          ref
+        )}
       <NavBar />
       <main className={styles}>
         {user.email === adminEmail && (
-          <FlatButton styles={'self-end'}>Create new</FlatButton>
+          <FlatButton
+            onClick={() => setArticleModalOpen(true)}
+            styles={'self-end'}
+          >
+            Create new
+          </FlatButton>
         )}
         {articlesList?.map((post, index) => {
           return (
