@@ -35,7 +35,7 @@ function LoginPage() {
         const userData = userCredential.user;
         setUser(userData);
         localStorage.setItem('strongfyUserId', userData.uid);
-        navigate('/dashboard');
+        navigate('/');
       } else {
         throw new Error();
       }

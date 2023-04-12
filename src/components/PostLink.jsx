@@ -5,7 +5,7 @@ function PostLink({ imageSrc, title, onClick, author, date }) {
   return (
     <div
       onClick={onClick}
-      className='text-textColor flex flex-col items-center gap-6 cursor-pointer bg-almostBlack p-6 rounded shadow-lg hover:shadow-xl hover:scale-103 transition-all'
+      className='text-textColor flex flex-col items-center gap-6 cursor-pointer bg-almostBlack p-6 rounded shadow-lg '
     >
       <div className='max-w-[56rem]'>
         <img className='rounded w-full' src={imageSrc} alt='Post image' />

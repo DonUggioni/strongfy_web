@@ -11,7 +11,13 @@ import { auth } from '../firebase-config/firebase-config';
 
 function NavBar() {
   const [isOpen, setOpen] = useState(false);
-  const { user, setUser, setUserTrainingInfo, setIsLoading } = useAppContext();
+  const {
+    user,
+    setUser,
+    setUserTrainingInfo,
+    setIsLoading,
+    setProjectedMaxes,
+  } = useAppContext();
   const navigate = useNavigate();
 
   const inactive =
@@ -28,6 +34,7 @@ function NavBar() {
     try {
       await signOut(auth);
       localStorage.removeItem('strongfyUserId');
+      localStorage.removeItem('maxes');
       setUser(null);
       setUserTrainingInfo(null);
       navigate('/');
@@ -37,6 +44,11 @@ function NavBar() {
     setTimeout(() => {
       setIsLoading(false);
     }, 2500);
+  }
+
+  function dashboardHandler() {
+    const maxes = JSON.parse(localStorage.getItem('maxes'));
+    setProjectedMaxes(maxes);
   }
 
   function navButtons() {
@@ -71,6 +83,7 @@ function NavBar() {
           <NavLink
             to={'/dashboard'}
             className={({ isActive }) => (isActive ? activeLink : inactive)}
+            onClick={() => dashboardHandler()}
           >
             Dashboard
           </NavLink>

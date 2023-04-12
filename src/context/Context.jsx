@@ -77,6 +77,7 @@ export function AppContextProvider({ children }) {
 
       if (docData.exists()) {
         setProjectedMaxes(docData.data());
+        localStorage.setItem('maxes', JSON.stringify(docData.data()));
       } else {
         return;
       }
@@ -102,6 +103,7 @@ export function AppContextProvider({ children }) {
     setTermsModalIsOpen,
     newPostModalIsOpen,
     setNewPostIsOpen,
+    setProjectedMaxes,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

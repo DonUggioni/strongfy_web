@@ -5,7 +5,6 @@ import PostLink from '../PostLink';
 import posts from '../../postData.json';
 import useAppContext from '../../context/Context';
 import FlatButton from '../UI/buttons/FlatButton';
-import { createPortal } from 'react-dom';
 
 function Articles() {
   const { setIsLoading, user } = useAppContext();

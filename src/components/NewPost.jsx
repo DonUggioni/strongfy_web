@@ -16,7 +16,7 @@ function NewPost() {
   }
 
   return (
-    <main className='bg-background flex items-center justify-center flex-col my-6'>
+    <main className='bg-background flex items-center justify-center flex-col my-6 h-screen'>
       <div className='flex items-center justify-center w-full my-6'>
         <form
           onSubmit={onSubmit}
