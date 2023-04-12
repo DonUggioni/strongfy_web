@@ -5,15 +5,23 @@ import UserIcon from '~icons/mdi/user-box';
 import ImageUpload from '~icons/ic/baseline-image-search';
 import FullButton from './UI/buttons/FullButton';
 import FlatButton from './UI/buttons/FlatButton';
+import { useNavigate } from 'react-router-dom';
 
-function NewPostModal({ onClose }) {
+function NewPost() {
+  const navigate = useNavigate();
   const inputStyle = '';
+
+  function onSubmit(event) {
+    event.preventDefault();
+  }
+
   return (
-    <div className='absolute top-0 right-0 bottom-0 left-0 z-10 bg-[rgba(0,0,0,0.9)] flex items-center justify-center flex-col'>
-      <div className='flex items-center justify-center w-full '>
+    <main className='bg-background flex items-center justify-center flex-col my-6'>
+      <div className='flex items-center justify-center w-full my-6'>
         <form
+          onSubmit={onSubmit}
           action='submit'
-          className='w-[60%] md:w-[90%] bg-background p-8 rounded grid gap-4'
+          className='w-[60%] md:w-[90%] bg-almostBlack p-8 rounded grid gap-4 shadow-lg'
         >
           <Input
             label={'Title'}
@@ -52,12 +60,12 @@ function NewPostModal({ onClose }) {
           </label>
           <textarea
             name='text'
-            rows='15'
+            rows='10'
             placeholder='This text box uses a markdown tool. For a markdown reference, please follow the link below.'
             className=' border focus:ring-2 focus:ring-primary600 focus:outline-none p-2 font-mont text-lg focus:border-primary600 rounded'
           ></textarea>
           <div className='flex items-center justify-end gap-4'>
-            <FlatButton onClick={onClose}>Cancel</FlatButton>
+            <FlatButton onClick={() => navigate(-1)}>Cancel</FlatButton>
             <FullButton>Submit</FullButton>
           </div>
         </form>
@@ -69,8 +77,8 @@ function NewPostModal({ onClose }) {
       >
         Mardown reference.
       </a>
-    </div>
+    </main>
   );
 }
 
-export default NewPostModal;
+export default NewPost;

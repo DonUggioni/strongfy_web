@@ -6,15 +6,12 @@ import posts from '../../postData.json';
 import useAppContext from '../../context/Context';
 import FlatButton from '../UI/buttons/FlatButton';
 import { createPortal } from 'react-dom';
-import NewPostModal from '../NewPostModal';
 
 function Articles() {
   const { setIsLoading, user } = useAppContext();
   const [articlesList, setArticlesList] = useState(null);
-  const [articleModalOpen, setArticleModalOpen] = useState(false);
   const navigate = useNavigate();
   const adminEmail = import.meta.env.VITE_ADMIN_EMAIL;
-  const ref = document.getElementById('modal');
 
   const styles =
     user.email === adminEmail
@@ -27,18 +24,10 @@ function Articles() {
 
   return (
     <div className='h-screen'>
-      {articleModalOpen &&
-        createPortal(
-          <NewPostModal onClose={() => setArticleModalOpen(false)} />,
-          ref
-        )}
       <NavBar />
       <main className={styles}>
         {user.email === adminEmail && (
-          <FlatButton
-            onClick={() => setArticleModalOpen(true)}
-            styles={'self-end'}
-          >
+          <FlatButton onClick={() => navigate('createnew')} styles={'self-end'}>
             Create new
           </FlatButton>
         )}
