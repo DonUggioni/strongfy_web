@@ -8,11 +8,11 @@ function Post() {
   const navigate = useNavigate();
   const postData = post[0];
   return (
-    <main className='bg-background h-screen mt-10 mx-10 md:mx-4 md:mt-6 sm:mt-2 flex flex-col justify-center items-center gap-6'>
+    <main className='bg-background h-screen p-8 md:pd-6 sm:pd-2'>
       <FlatButton onClick={() => navigate(-1)} styles={'self-start'}>
         Go Back
       </FlatButton>
-      <div className='text-textColor flex flex-col items-center gap-6 bg-almostBlack p-6 md:p-4 sm:p-2 mb-16 md:mb-8 rounded shadow-lg max-w-[60rem]'>
+      <div className='text-textColor flex flex-col items-center gap-6 bg-almostBlack p-6 md:p-4 sm:p-3 m-16 md:my-6 mx-auto rounded shadow-lg max-w-[60rem]'>
         <div className='max-w-[56rem]'>
           <img
             className='rounded w-full'

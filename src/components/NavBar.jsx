@@ -11,6 +11,8 @@ import { auth } from '../firebase-config/firebase-config';
 
 function NavBar() {
   const [isOpen, setOpen] = useState(false);
+  const { getArticles } = useAppContext();
+
   const {
     user,
     setUser,
@@ -77,6 +79,7 @@ function NavBar() {
           <NavLink
             to='/articles'
             className={({ isActive }) => (isActive ? activeLink : inactive)}
+            onClick={() => getArticles()}
           >
             Articles
           </NavLink>

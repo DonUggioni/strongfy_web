@@ -14,6 +14,7 @@ export function AppContextProvider({ children }) {
   const [privacyModalIsOpen, setPrivacyModalIsOpen] = useState(false);
   const [termsModalIsOpen, setTermsModalIsOpen] = useState(false);
   const [newPostModalIsOpen, setNewPostIsOpen] = useState(false);
+  const [articlesList, setArticlesList] = useState([]);
 
   useEffect(() => {
     // On reload, user will persist
@@ -86,6 +87,24 @@ export function AppContextProvider({ children }) {
     }
   }
 
+  // Get articles
+  async function getArticles() {
+    const docRef = collection(db, 'posts');
+
+    try {
+      const docData = await getDocs(docRef);
+      if (docData) {
+        docData.forEach((doc) => {
+          setArticlesList([doc.data()]);
+        });
+      } else {
+        return;
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   const values = {
     user,
     setUser,
@@ -104,6 +123,8 @@ export function AppContextProvider({ children }) {
     newPostModalIsOpen,
     setNewPostIsOpen,
     setProjectedMaxes,
+    articlesList,
+    getArticles,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
