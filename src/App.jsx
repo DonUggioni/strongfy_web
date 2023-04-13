@@ -12,7 +12,7 @@ import NewPost from './components/NewPost';
 
 function App() {
   const { user, isLoading } = useAppContext();
-  const adminEmail = import.meta.env.VITE_ADMIN_EMAIL;
+  const adminEmail = import.meta.env?.VITE_ADMIN_EMAIL;
 
   if (isLoading) {
     return <LoadingPage />;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Input from './UI/typography/Input';
 import TitleIcon from '~icons/material-symbols/title';
 import UserIcon from '~icons/mdi/user-box';
@@ -6,28 +6,50 @@ import ImageUpload from '~icons/ic/baseline-image-search';
 import FullButton from './UI/buttons/FullButton';
 import FlatButton from './UI/buttons/FlatButton';
 import { useNavigate } from 'react-router-dom';
-import { Timestamp } from 'firebase/firestore';
-import { ref, uploadBytesResumable } from 'firebase/storage';
-import { storage } from '../firebase-config/firebase-config';
+import {
+  Timestamp,
+  addDoc,
+  collection,
+  serverTimestamp,
+} from 'firebase/firestore';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { db, storage } from '../firebase-config/firebase-config';
+import { LinearProgress } from '@mui/material';
+import { v4 as uuid } from 'uuid';
 
 function NewPost() {
+  const url = 'https://www.barbell-hub.com/articles/';
+  const date = new Date();
+  const day = date.getDate();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  const formattedDate = `${month}/${day}/${year}`;
+
   const [postData, setPostData] = useState({
     title: '',
     author: '',
     image: '',
-    url: 'https://www.barbell-hub.com/articles/',
-    date: Timestamp.now().toDate(),
+    content: '',
   });
+  const [progress, setProgress] = useState(0);
+  const [postId, setPostId] = useState(null);
   const navigate = useNavigate();
 
   const inputStyle = '';
+
+  useEffect(() => {
+    function getPostId() {
+      setPostId(uuid());
+    }
+    getPostId();
+  }, []);
 
   function handleChange(e) {
     setPostData({ ...postData, [e.target.name]: e.target.value });
   }
 
   function handleImageChange(e) {
-    setPostData({ ...postData, image: e.target.file[0] });
+    setPostData({ ...postData, image: e.target.files[0] });
   }
 
   function onSubmit(event) {
@@ -39,10 +61,37 @@ function NewPost() {
 
     const storageRef = ref(
       storage,
-      `/images/${Date.now()}${postData.image.name}`
+      `images/${Date.now()}${postData.image.name}`
     );
 
     const uploadImage = uploadBytesResumable(storageRef, postData.image);
+
+    uploadImage.on(
+      'state_changed',
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setProgress(progress);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        getDownloadURL(uploadImage.snapshot.ref).then((downloadURL) => {
+          const postsRef = collection(db, 'posts');
+          addDoc(postsRef, {
+            ...postData,
+            image: downloadURL,
+            url: url + postId,
+            timestamp: serverTimestamp(),
+            postId: postId,
+            date: formattedDate,
+          })
+            .then(alert('Added successfully!'))
+            .then(navigate('/'));
+        });
+      }
+    );
   }
 
   return (
@@ -90,6 +139,9 @@ function NewPost() {
             }
             onChange={(e) => handleImageChange(e)}
           />
+          {progress !== 0 && (
+            <LinearProgress variant='determinate' value={progress} />
+          )}
           <label htmlFor='text' className='text-grey300 sm:text-sm font-mont'>
             Add Text
           </label>
