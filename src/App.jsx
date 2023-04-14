@@ -23,7 +23,7 @@ function App() {
       return (
         <>
           <Route path='/' element={<LandingPage />} />
-          <Route path='articles' element={<Articles />} />
+          <Route path='articles/' element={<Articles />} />
           <Route path='articles/:postId' element={<Post />} />
           {user.email === adminEmail && (
             <Route path='articles/createnew' element={<NewPost />} />

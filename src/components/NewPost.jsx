@@ -6,12 +6,7 @@ import ImageUpload from '~icons/ic/baseline-image-search';
 import FullButton from './UI/buttons/FullButton';
 import FlatButton from './UI/buttons/FlatButton';
 import { useNavigate } from 'react-router-dom';
-import {
-  Timestamp,
-  addDoc,
-  collection,
-  serverTimestamp,
-} from 'firebase/firestore';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { db, storage } from '../firebase-config/firebase-config';
 import { LinearProgress } from '@mui/material';

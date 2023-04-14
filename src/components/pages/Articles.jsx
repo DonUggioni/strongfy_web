@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../NavBar';
 import PostLink from '../PostLink';
@@ -31,7 +31,7 @@ function Articles() {
               title={post.title}
               author={post.author}
               date={post.date}
-              onClick={() => navigate(`${post.id}`)}
+              onClick={() => navigate(post.postId)}
               key={index}
             />
           );

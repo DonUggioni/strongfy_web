@@ -1,12 +1,20 @@
-import React from 'react';
-import post from '../postData.json';
+import React, { useEffect } from 'react';
 import Title from './UI/typography/Title';
 import FlatButton from './UI/buttons/FlatButton';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import useAppContext from '../context/Context';
 
 function Post() {
+  const { articleData, getPost, setIsLoading } = useAppContext();
+  const { postId } = useParams();
   const navigate = useNavigate();
-  const postData = post[0];
+
+  useEffect(() => {
+    setIsLoading(true);
+    getPost(postId);
+    setIsLoading(false);
+  }, [postId]);
+
   return (
     <main className='bg-background h-screen p-8 md:pd-6 sm:pd-2'>
       <FlatButton onClick={() => navigate(-1)} styles={'self-start'}>
@@ -16,16 +24,16 @@ function Post() {
         <div className='max-w-[56rem]'>
           <img
             className='rounded w-full'
-            src={postData.image}
+            src={articleData?.image}
             alt='Post image'
           />
         </div>
         <div>
-          <Title style={'text-center'}>{postData.title}</Title>
-          <p className='mt-6 sm:text-center p-2 md:p-0'>{postData.content}</p>
+          <Title style={'text-center'}>{articleData?.title}</Title>
+          <p className='mt-6 sm:text-center p-2 md:p-0'>{articleData?.text}</p>
           <div className='flex gap-8 items-center justify-end text-grey400 text-sm mt-8 sm:justify-center'>
-            <p>By {postData.author}</p>
-            <span>{postData.date}</span>
+            <p>By {articleData?.author}</p>
+            <span>{articleData?.date}</span>
           </div>
         </div>
       </div>

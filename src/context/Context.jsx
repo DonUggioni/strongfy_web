@@ -1,6 +1,14 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
-import { doc, getDoc, collection, getDocs, orderBy } from 'firebase/firestore';
+import {
+  doc,
+  getDoc,
+  collection,
+  getDocs,
+  orderBy,
+  query,
+  where,
+} from 'firebase/firestore';
 import { auth, db } from '../firebase-config/firebase-config';
 
 const AppContext = createContext(null);
@@ -15,6 +23,7 @@ export function AppContextProvider({ children }) {
   const [termsModalIsOpen, setTermsModalIsOpen] = useState(false);
   const [newPostModalIsOpen, setNewPostIsOpen] = useState(false);
   const [articlesList, setArticlesList] = useState(null);
+  const [articleData, setArticleData] = useState(null);
 
   console.log(articlesList);
 
@@ -109,6 +118,23 @@ export function AppContextProvider({ children }) {
     }
   }
 
+  // Get post
+  async function getPost(id) {
+    const q = query(collection(db, 'posts'), where('postId', '==', id));
+    try {
+      const querySnapshot = await getDocs(q);
+      if (querySnapshot) {
+        querySnapshot.forEach((doc) => {
+          setArticleData(doc.data());
+        });
+      } else {
+        return;
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   const values = {
     user,
     setUser,
@@ -129,6 +155,9 @@ export function AppContextProvider({ children }) {
     setProjectedMaxes,
     articlesList,
     getArticles,
+    articleData,
+    setArticleData,
+    getPost,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
