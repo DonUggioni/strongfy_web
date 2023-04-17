@@ -1,18 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Title from './UI/typography/Title';
 import FlatButton from './UI/buttons/FlatButton';
 import { useNavigate, useParams } from 'react-router-dom';
 import useAppContext from '../context/Context';
+import ReactMarkdown from 'react-markdown';
 
 function Post() {
   const { articleData, getPost, setIsLoading } = useAppContext();
   const { postId } = useParams();
   const navigate = useNavigate();
-
   useEffect(() => {
-    setIsLoading(true);
     getPost(postId);
-    setIsLoading(false);
   }, [postId]);
 
   return (
@@ -28,9 +26,13 @@ function Post() {
             alt='Post image'
           />
         </div>
-        <div>
+        <div className='w-full'>
           <Title style={'text-center'}>{articleData?.title}</Title>
-          <p className='mt-6 sm:text-center p-2 md:p-0'>{articleData?.text}</p>
+
+          <div className='mt-6 sm:text-center p-2 md:p-0 w-full'>
+            <ReactMarkdown>{articleData?.text}</ReactMarkdown>
+          </div>
+
           <div className='flex gap-8 items-center justify-end text-grey400 text-sm mt-8 sm:justify-center'>
             <p>By {articleData?.author}</p>
             <span>{articleData?.date}</span>
