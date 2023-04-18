@@ -90,8 +90,8 @@ function NewPost() {
   }
 
   return (
-    <main className='bg-background flex items-center justify-center flex-col my-6 h-screen'>
-      <div className='flex items-center justify-center w-full my-6'>
+    <main className='bg-background flex items-center justify-center flex-col h-screen pt-16'>
+      <div className='flex items-center justify-center w-full mb-2'>
         <form
           onSubmit={(e) => onSubmit(e)}
           action='submit'
@@ -155,7 +155,7 @@ function NewPost() {
       </div>
       <a
         href='https://commonmark.org/help/'
-        className='text-textColor font-mont underline text-sm'
+        className='text-textColor font-mont underline text-sm pb-10'
         target='_blank'
       >
         Mardown reference.

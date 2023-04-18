@@ -25,8 +25,6 @@ export function AppContextProvider({ children }) {
   const [articlesList, setArticlesList] = useState(null);
   const [articleData, setArticleData] = useState(null);
 
-  console.log(articlesList);
-
   useEffect(() => {
     // On reload, user will persist
     function persistCurrentUser() {
@@ -46,6 +44,7 @@ export function AppContextProvider({ children }) {
       getUserTrainingInfo();
       getUserInfo();
       getProjectedMax();
+      getArticles();
     }
   }, [user]);
 
@@ -109,7 +108,8 @@ export function AppContextProvider({ children }) {
         docData.forEach((doc) => {
           articlesArr.push(doc.data());
         });
-        setArticlesList(articlesArr);
+        localStorage.setItem('posts', JSON.stringify(articlesArr));
+        // setArticlesList(articlesArr);
       } else {
         return;
       }
@@ -154,7 +154,7 @@ export function AppContextProvider({ children }) {
     setNewPostIsOpen,
     setProjectedMaxes,
     articlesList,
-    getArticles,
+    // getArticles,
     articleData,
     setArticleData,
     getPost,
