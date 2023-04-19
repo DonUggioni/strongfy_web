@@ -100,12 +100,13 @@ export function AppContextProvider({ children }) {
   // Get articles from DB
   async function getArticles() {
     const docRef = collection(db, 'posts');
+    const q = query(docRef, orderBy('timestamp', 'desc'));
     const articlesArr = [];
 
     try {
-      const docData = await getDocs(docRef);
-      if (docData) {
-        docData.forEach((doc) => {
+      const posts = await getDocs(q);
+      if (posts) {
+        posts.forEach((doc) => {
           articlesArr.push(doc.data());
         });
         localStorage.setItem('posts', JSON.stringify(articlesArr));
@@ -157,6 +158,7 @@ export function AppContextProvider({ children }) {
     // getArticles,
     articleData,
     setArticleData,
+    setArticlesList,
     getPost,
   };
 

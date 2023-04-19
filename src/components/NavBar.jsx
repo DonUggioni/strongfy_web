@@ -18,7 +18,7 @@ function NavBar() {
     setUserTrainingInfo,
     setIsLoading,
     setProjectedMaxes,
-    setArticleData,
+    setArticlesList,
   } = useAppContext();
   const navigate = useNavigate();
 
@@ -56,7 +56,8 @@ function NavBar() {
 
   function articlesHandler() {
     const posts = JSON.parse(localStorage.getItem('posts'));
-    setArticleData(posts);
+    setArticlesList(posts);
+    console.log(posts);
   }
 
   function navButtons() {
