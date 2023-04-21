@@ -9,12 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.12.0",
     "firebase": "^9.17.1",
     "framer-motion": "^9.0.3",
     "hamburger-react": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.1"
+    "react-markdown": "^8.0.7",
+    "react-router-dom": "^6.8.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.21",

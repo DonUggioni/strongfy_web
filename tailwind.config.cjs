@@ -10,6 +10,7 @@ module.exports = {
         primary700: '#11300c',
         background: '#1E1E1E',
         almostBlack: '#222222',
+        grey200: '#f8f8f8',
         grey300: '#c0c0c0',
         grey400: '#818080',
         grey500: '#5e5e5e',
@@ -24,6 +25,9 @@ module.exports = {
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
+      },
+      scale: {
+        103: '1.03',
       },
     },
     screens: {

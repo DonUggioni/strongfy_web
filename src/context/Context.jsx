@@ -1,6 +1,14 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
-import { doc, getDoc, collection, getDocs, orderBy } from 'firebase/firestore';
+import {
+  doc,
+  getDoc,
+  collection,
+  getDocs,
+  orderBy,
+  query,
+  where,
+} from 'firebase/firestore';
 import { auth, db } from '../firebase-config/firebase-config';
 
 const AppContext = createContext(null);
@@ -13,6 +21,9 @@ export function AppContextProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [privacyModalIsOpen, setPrivacyModalIsOpen] = useState(false);
   const [termsModalIsOpen, setTermsModalIsOpen] = useState(false);
+  const [newPostModalIsOpen, setNewPostIsOpen] = useState(false);
+  const [articlesList, setArticlesList] = useState(null);
+  const [articleData, setArticleData] = useState(null);
 
   useEffect(() => {
     // On reload, user will persist
@@ -33,6 +44,7 @@ export function AppContextProvider({ children }) {
       getUserTrainingInfo();
       getUserInfo();
       getProjectedMax();
+      getArticles();
     }
   }, [user]);
 
@@ -76,6 +88,46 @@ export function AppContextProvider({ children }) {
 
       if (docData.exists()) {
         setProjectedMaxes(docData.data());
+        localStorage.setItem('maxes', JSON.stringify(docData.data()));
+      } else {
+        return;
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  // Get articles from DB
+  async function getArticles() {
+    const docRef = collection(db, 'posts');
+    const q = query(docRef, orderBy('timestamp', 'desc'));
+    const articlesArr = [];
+
+    try {
+      const posts = await getDocs(q);
+      if (posts) {
+        posts.forEach((doc) => {
+          articlesArr.push(doc.data());
+        });
+        localStorage.setItem('posts', JSON.stringify(articlesArr));
+        // setArticlesList(articlesArr);
+      } else {
+        return;
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  // Get post
+  async function getPost(id) {
+    const q = query(collection(db, 'posts'), where('postId', '==', id));
+    try {
+      const querySnapshot = await getDocs(q);
+      if (querySnapshot) {
+        querySnapshot.forEach((doc) => {
+          setArticleData(doc.data());
+        });
       } else {
         return;
       }
@@ -99,6 +151,14 @@ export function AppContextProvider({ children }) {
     setPrivacyModalIsOpen,
     termsModalIsOpen,
     setTermsModalIsOpen,
+    newPostModalIsOpen,
+    setNewPostIsOpen,
+    setProjectedMaxes,
+    articlesList,
+    articleData,
+    setArticleData,
+    setArticlesList,
+    getPost,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
