@@ -57,7 +57,6 @@ function NavBar() {
   function articlesHandler() {
     const posts = JSON.parse(localStorage.getItem('posts'));
     setArticlesList(posts);
-    console.log(posts);
   }
 
   function navButtons() {

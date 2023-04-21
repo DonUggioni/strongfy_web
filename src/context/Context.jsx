@@ -155,7 +155,6 @@ export function AppContextProvider({ children }) {
     setNewPostIsOpen,
     setProjectedMaxes,
     articlesList,
-    // getArticles,
     articleData,
     setArticleData,
     setArticlesList,

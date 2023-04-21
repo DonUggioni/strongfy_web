@@ -14,11 +14,11 @@ function Post() {
   }, [postId]);
 
   return (
-    <main className='bg-background h-screen p-8 md:pd-6 sm:pd-2'>
+    <main className='bg-background h-screen p-8 md:p-6 sm:p-2'>
       <FlatButton onClick={() => navigate(-1)} styles={'self-start'}>
         Go Back
       </FlatButton>
-      <div className='text-textColor flex flex-col items-center gap-6 bg-almostBlack p-6 md:p-4 sm:p-3 m-16 md:my-6 mx-auto rounded shadow-lg max-w-[60rem]'>
+      <div className='text-textColor flex flex-col items-center gap-6 bg-almostBlack p-6 md:p-4 sm:p-2 m-16 md:my-6 mx-auto rounded shadow-lg max-w-[60rem]'>
         <div className='max-w-[56rem]'>
           <img
             className='rounded w-full'
