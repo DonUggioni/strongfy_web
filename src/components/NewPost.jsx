@@ -13,7 +13,7 @@ import { LinearProgress } from '@mui/material';
 import { v4 as uuid } from 'uuid';
 
 function NewPost() {
-  const url = 'https://www.barbell-hub.com/articles/';
+  const URL = 'https://www.barbell-hub.com/articles/';
   const date = new Date();
   const day = date.getDate();
   const month = date.getMonth();
@@ -39,6 +39,11 @@ function NewPost() {
     getPostId();
   }, []);
 
+  function handleCancel(e) {
+    e.preventDefault();
+    navigate(-1);
+  }
+
   function handleChange(e) {
     setPostData({ ...postData, [e.target.name]: e.target.value });
   }
@@ -47,7 +52,7 @@ function NewPost() {
     setPostData({ ...postData, image: e.target.files[0] });
   }
 
-  function onSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
     if (!postData.title || !postData.author || !postData.image) {
       alert('Please make sure all fields are filled in.');
@@ -77,7 +82,7 @@ function NewPost() {
           addDoc(postsRef, {
             ...postData,
             image: downloadURL,
-            url: url + postId,
+            url: URL + postId,
             timestamp: serverTimestamp(),
             postId: postId,
             date: formattedDate,
@@ -93,7 +98,6 @@ function NewPost() {
     <main className='bg-background flex items-center justify-center flex-col h-screen pt-16'>
       <div className='flex items-center justify-center w-full mb-2'>
         <form
-          onSubmit={(e) => onSubmit(e)}
           action='submit'
           className='w-[60%] md:w-[90%] bg-almostBlack p-8 rounded grid gap-4 shadow-lg'
         >
@@ -148,8 +152,8 @@ function NewPost() {
             className=' border focus:ring-2 focus:ring-primary600 focus:outline-none p-2 font-mont text-lg focus:border-primary600 rounded'
           ></textarea>
           <div className='flex items-center justify-end gap-4'>
-            <FlatButton onClick={() => navigate(-1)}>Cancel</FlatButton>
-            <FullButton>Submit</FullButton>
+            <FlatButton onClick={(e) => handleCancel(e)}>Cancel</FlatButton>
+            <FullButton onClick={(e) => handleSubmit(e)}>Submit</FullButton>
           </div>
         </form>
       </div>

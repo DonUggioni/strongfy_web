@@ -6,7 +6,7 @@ import useAppContext from '../context/Context';
 import ReactMarkdown from 'react-markdown';
 
 function Post() {
-  const { articleData, getPost, setIsLoading } = useAppContext();
+  const { articleData, getPost } = useAppContext();
   const { postId } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
