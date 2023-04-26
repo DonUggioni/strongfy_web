@@ -57,7 +57,7 @@ function SignupPage() {
         );
 
         await sendEmailVerification(auth.currentUser, {
-          url: 'https://monumental-hamster-68270b.netlify.app/login',
+          url: 'https://barbell-hub.com/login',
         });
 
         alert(

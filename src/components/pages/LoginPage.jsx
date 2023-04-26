@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Form from '../Form';
 import Input from '../UI/typography/Input';
 import Title from '../UI/typography/Title';
@@ -15,7 +15,7 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const { setUser, setIsLoading } = useAppContext();
+  const { setUser, setIsLoading, initialLocation } = useAppContext();
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -35,7 +35,8 @@ function LoginPage() {
         const userData = userCredential.user;
         setUser(userData);
         localStorage.setItem('strongfyUserId', userData.uid);
-        navigate('/');
+        localStorage.setItem('isLoggedIn', true);
+        navigate(initialLocation ? initialLocation : '/');
       } else {
         throw new Error();
       }

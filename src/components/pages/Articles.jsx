@@ -15,6 +15,10 @@ function Articles() {
       ? 'flex flex-col items-center gap-12 md:gap-10 sm:gap-8 mt-10 md:mt-6 mb-20 md:mb-12 mx-8 sm:mx-2'
       : 'flex flex-col items-center gap-12 md:gap-10 sm:gap-8 mt-20 md:mt-12 mb-20 md:mb-12 mx-8 md:mx-4 sm:mx-2';
 
+  function getPostHandler(data) {
+    navigate(data.postId);
+  }
+
   return (
     <div className='h-screen'>
       <NavBar />
@@ -31,7 +35,7 @@ function Articles() {
               title={post.title}
               author={post.author}
               date={post.date}
-              onClick={() => navigate(post.postId)}
+              onClick={() => getPostHandler(post)}
               key={index}
             />
           );

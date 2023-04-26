@@ -14,7 +14,7 @@ import { auth, db } from '../firebase-config/firebase-config';
 const AppContext = createContext(null);
 
 export function AppContextProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('');
   const [userInfo, setUserInfo] = useState(null);
   const [userTrainingInfo, setUserTrainingInfo] = useState(null);
   const [projectedMaxes, setProjectedMaxes] = useState(null);
@@ -24,6 +24,7 @@ export function AppContextProvider({ children }) {
   const [newPostModalIsOpen, setNewPostIsOpen] = useState(false);
   const [articlesList, setArticlesList] = useState(null);
   const [articleData, setArticleData] = useState(null);
+  const [initialLocation, setInitialLocation] = useState('');
 
   useEffect(() => {
     // On reload, user will persist
@@ -119,23 +120,6 @@ export function AppContextProvider({ children }) {
     }
   }
 
-  // Get post
-  async function getPost(id) {
-    const q = query(collection(db, 'posts'), where('postId', '==', id));
-    try {
-      const querySnapshot = await getDocs(q);
-      if (querySnapshot) {
-        querySnapshot.forEach((doc) => {
-          setArticleData(doc.data());
-        });
-      } else {
-        return;
-      }
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-
   const values = {
     user,
     setUser,
@@ -158,7 +142,8 @@ export function AppContextProvider({ children }) {
     articleData,
     setArticleData,
     setArticlesList,
-    getPost,
+    initialLocation,
+    setInitialLocation,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

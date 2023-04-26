@@ -19,6 +19,7 @@ function NavBar() {
     setIsLoading,
     setProjectedMaxes,
     setArticlesList,
+    setInitialLocation,
   } = useAppContext();
   const navigate = useNavigate();
 
@@ -38,6 +39,8 @@ function NavBar() {
       localStorage.removeItem('strongfyUserId');
       localStorage.removeItem('maxes');
       localStorage.removeItem('posts');
+      localStorage.setItem('isLoggedIn', false);
+      setInitialLocation('');
       setUser(null);
       setUserTrainingInfo(null);
       navigate('/');
@@ -60,7 +63,7 @@ function NavBar() {
   }
 
   function navButtons() {
-    if (user === null || user.emailVerified === false) {
+    if (!user || user.emailVerified === false) {
       return (
         <>
           <FullButton styles={'sm:w-full'} onClick={() => navigate('/signup')}>
@@ -73,7 +76,7 @@ function NavBar() {
       );
     }
 
-    if (user !== null && user.emailVerified === true) {
+    if (user && user.emailVerified === true) {
       return (
         <>
           <NavLink
