@@ -10,6 +10,8 @@ import Articles from './components/pages/Articles';
 import Post from './components/Post';
 import NewPost from './components/NewPost';
 import { useEffect, useState } from 'react';
+import { logEvent } from 'firebase/analytics';
+import { analytics } from './firebase-config/firebase-config';
 
 function App() {
   const { user, isLoading, setInitialLocation } = useAppContext();
@@ -18,6 +20,12 @@ function App() {
   );
   const location = useLocation();
   const adminEmail = import.meta.env?.VITE_ADMIN_EMAIL;
+  const localhost = window.location.hostname;
+
+  logEvent(analytics, 'screen_view', {
+    firebase_screen: location.pathname,
+    traffic_type: localhost,
+  });
 
   useEffect(() => {
     setInitialLocation(location.pathname);
