@@ -58,8 +58,12 @@ function NavBar() {
   }
 
   function articlesHandler() {
+    setIsLoading(true);
     const posts = JSON.parse(localStorage.getItem('posts'));
     setArticlesList(posts);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
   }
 
   function navButtons() {
