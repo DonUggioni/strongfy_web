@@ -8,9 +8,10 @@ This website was created to be a marketing/support website for the **Barbell Hub
 **LIVE LINK:** [www.barbell-hub.com](https://pages.github.com/)
 
 ## Features
-- New users can create an account through the web site
-- Current users can login and read articles related to training
-- Current users can login and check their dashboard, which contains information related to their training history
+- New users can create an account through the web site.
+- Current users can login and read articles related to training.
+- Current users can login and check their dashboard, which contains information related to their training history.
+- If you are logged in as an admin, you are able to create new blog posts.
 
 ## Installation and Running
 1- Clone the repo  
@@ -33,10 +34,18 @@ This project is built with the following technologies:
 - [UUID](https://www.npmjs.com/package/uuid)
 - [Hamburguer React](https://hamburger-react.netlify.app/)
 
-##Usage
-
+## Usage
 1. New users can navigate to the website and click on the "Sign Up" button to create an account.
 2. Current users can log in using their credentials and access a collection of articles related to training.
 3. Logged-in users can also access their personalized dashboard, which provides valuable insights into their training history and progress.
 
+## Screenshots
+1. Homepage
+![Captura_de_ecra_2023-07-23_110728_50](https://github.com/DonUggioni/strongfy_web/assets/99286931/714744a1-02e5-48b5-a9b0-5b39e0e661b5)
+
+2. Articles
+![Captura_de_ecra_2023-07-23_110756_50](https://github.com/DonUggioni/strongfy_web/assets/99286931/e3117b43-1da6-469a-a0ad-57b1ec56a1a4)
+
+3. Dashboard
+![Captura_de_ecra_2023-07-23_110815_50](https://github.com/DonUggioni/strongfy_web/assets/99286931/797f87b4-658b-473b-8386-7cd9c4650eff)
 
