@@ -34,11 +34,6 @@ This project is built with the following technologies:
 - [UUID](https://www.npmjs.com/package/uuid)
 - [Hamburguer React](https://hamburger-react.netlify.app/)
 
-## Usage
-1. New users can navigate to the website and click on the "Sign Up" button to create an account.
-2. Current users can log in using their credentials and access a collection of articles related to training.
-3. Logged-in users can also access their personalized dashboard, which provides valuable insights into their training history and progress.
-
 ## Screenshots
 1. Homepage
 ![Captura_de_ecra_2023-07-23_110728_50](https://github.com/DonUggioni/strongfy_web/assets/99286931/714744a1-02e5-48b5-a9b0-5b39e0e661b5)
